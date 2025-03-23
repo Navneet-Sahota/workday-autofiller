@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Workday Auto-Fill",
+  "version": "1.0",
+  "description": "Auto-fills job applications on Workday",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon16.png",
+      "128": "icon16.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.workday.com/*",
+    "https://*.myworkdayjobs.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.workday.com/*", "https://*.myworkdayjobs.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
